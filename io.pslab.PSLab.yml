@@ -10,6 +10,8 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --device=dri
+  - --device-if=all:!has-input-device
+  - --device=input
 rename-desktop-file: pslab.desktop
 rename-icon: pslab  
 modules:
@@ -38,7 +40,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/fossasia/pslab-app.git
-        commit: 986260c504899fc8068422e06626c809592d0da4
+        commit: 135ea3aa87c83511e2e9f6b745b179c1337e5980
       - generated/sources/pubspec.json
     modules:
-      - generated/modules/flutter-sdk-3.44.1.json
+      - generated/modules/flutter-sdk-3.50.0.json
