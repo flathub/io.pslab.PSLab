@@ -40,7 +40,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/fossasia/pslab-app.git
-        commit: 135ea3aa87c83511e2e9f6b745b179c1337e5980
+        commit: e5d8a9d88b6eee3608a866eeffc9bf703c13175a
       - generated/sources/pubspec.json
     modules:
       - generated/modules/flutter-sdk-3.50.0.json
