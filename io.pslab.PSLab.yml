@@ -4,6 +4,7 @@ runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm22
+  - org.freedesktop.Sdk.Extension.rust-stable
 command: pslab
 rename-desktop-file: pslab.desktop
 rename-icon: pslab
@@ -25,13 +26,17 @@ modules:
         aarch64:
           env:
             BUNDLE_PATH: build/linux/arm64/release/bundle
-      append-path: /usr/lib/sdk/llvm22/bin:/var/lib/flutter/bin
+      append-path: /usr/lib/sdk/llvm22/bin:/usr/lib/sdk/rust-stable/bin:/var/lib/flutter/bin
       prepend-ld-library-path: /usr/lib/sdk/llvm22/lib
       env:
         PUB_CACHE: /run/build/PSLab/.pub-cache
     build-commands:
       - setup-flutter.sh
-      - flutter build linux --release --no-pub -v
+      - |
+        for tool_dir in $(find . -path "*/cargokit/build_tool" -type d); do
+          (cd "$tool_dir" && dart pub get --offline)
+        done
+      - flutter build linux --release --no-pub
       - cp -r $BUNDLE_PATH /app/io.pslab.PSLab
       - mkdir -p /app/bin && ln -s /app/io.pslab.PSLab/pslab /app/bin/pslab
       - install -D linux/io.pslab.PSLab.metainfo.xml /app/share/metainfo/io.pslab.PSLab.metainfo.xml
