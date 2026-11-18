@@ -32,10 +32,6 @@ modules:
         PUB_CACHE: /run/build/PSLab/.pub-cache
     build-commands:
       - setup-flutter.sh
-      - |
-        for tool_dir in $(find . -path "*/cargokit/build_tool" -type d); do
-          (cd "$tool_dir" && dart pub get --offline)
-        done
       - flutter build linux --release --no-pub
       - cp -r $BUNDLE_PATH /app/io.pslab.PSLab
       - mkdir -p /app/bin && ln -s /app/io.pslab.PSLab/pslab /app/bin/pslab
