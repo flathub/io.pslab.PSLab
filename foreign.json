@@ -1,0 +1,26 @@
+{
+    "rust_lib": {
+        "cargo_locks": [
+            "rust"
+        ],
+        "extra_pubspecs": [
+            "rust_builder/cargokit/build_tool"
+        ]
+    },
+    "flutter_litert": {
+        "manifest": {
+            "sources": [
+                {
+                    "type": "file",
+                    "url": "https://github.com/hugocornellier/flutter_litert/releases/download/litert-desktop-gpu-v2.3.0/libLiteRtWebGpuAccelerator.so",
+                    "sha256": "b67f193ae6eb8ad3a15349f54aba696c97d6f981c92bc2eb1096cbe9e2835b25",
+                    "dest": ".pub-cache/hosted/pub.dev/flutter_litert-4.1.1/linux/lib",
+                    "dest-filename": "libLiteRtWebGpuAccelerator.so",
+                    "only-arches": [
+                        "x86_64"
+                    ]
+                }
+            ]
+        }
+    }
+}
