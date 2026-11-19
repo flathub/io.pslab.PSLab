@@ -30,6 +30,8 @@ modules:
       prepend-ld-library-path: /usr/lib/sdk/llvm22/lib
       env:
         PUB_CACHE: /run/build/PSLab/.pub-cache
+        CARGO_HOME: /run/build/PSLab/cargo
+        RUSTUP_HOME: /var/lib/rustup
     build-commands:
       - setup-flutter.sh
       - |
@@ -46,6 +48,8 @@ modules:
       - type: git
         url: https://github.com/fossasia/pslab-app.git
         commit: e5d8a9d88b6eee3608a866eeffc9bf703c13175a
+      - generated/sources/cargo.json
       - generated/sources/pubspec.json
     modules:
+      - generated/modules/rustup-1.94.0.json
       - generated/modules/flutter-sdk-3.50.0.json
