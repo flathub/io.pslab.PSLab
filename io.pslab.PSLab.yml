@@ -34,7 +34,7 @@ modules:
         RUSTUP_HOME: /var/lib/rustup
     build-commands:
       - setup-flutter.sh
-      - flutter build linux --release --no-pub
+      - flutter build linux --release --no-pub -v
       - cp -r $BUNDLE_PATH /app/io.pslab.PSLab
       - mkdir -p /app/bin && ln -s /app/io.pslab.PSLab/pslab /app/bin/pslab
       - install -D linux/io.pslab.PSLab.metainfo.xml /app/share/metainfo/io.pslab.PSLab.metainfo.xml
